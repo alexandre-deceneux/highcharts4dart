@@ -59,14 +59,14 @@ class HighChartComponent {
   }
   
   
-  void _invalidateDisplay () {
+  void invalidateDisplay () {
     if (!_displayDirty) {
       _displayDirty = true;
       window.animationFrame.then((_) { _updateDisplay(); });
     }
   }
   
-  void _updateDisplay () {
+  void updateDisplay () {
     if (_domReady && _displayDirty && _chartOptions != null) {
       //print ("Update display");
       _createChart ();
