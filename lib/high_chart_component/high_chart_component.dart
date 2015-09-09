@@ -60,6 +60,7 @@ class HighChartComponent {
   
   void invalidateDisplay (){_invalidateDisplay();}
   void _invalidateDisplay () {
+print("INVALIDATE DISPLAY");
     if (!_displayDirty) {
       _displayDirty = true;
       window.animationFrame.then((_) { _updateDisplay(); });
@@ -68,6 +69,7 @@ class HighChartComponent {
   
 void updateDisplay () {_updateDisplay();}
   void _updateDisplay () {
+		print("UPDATE DISPLAY");
     if (_domReady && _displayDirty && _chartOptions != null) {
       //print ("Update display");
       _createChart ();
@@ -75,6 +77,7 @@ void updateDisplay () {_updateDisplay();}
     _displayDirty = false;
   }
   
+  void createChart () {_createChart();print("CREATE CHART");}
   void _createChart () {
     /* This is the old way. This requires JQuery. It has been replaced by the standalone-framework (https://github.com/highslide-software/highcharts.com/blob/master/js/adapters/standalone-framework.src.js)
     context.callMethod(r'$', ["#chart-container-$_chartID"]).callMethod('highcharts', [new JsObject.jsify(_chartOptions.toMap())]);
